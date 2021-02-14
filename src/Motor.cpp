@@ -1,26 +1,36 @@
 #include<Motor.h>
 #include<HBridge.h>
 
-Motor::Motor(int en, int u1, int u2){
+Motor::Motor(){
     
+}
+
+Motor::Motor(int u1, int u2, int en){
+    setup(u1, u2, en);
 }
 
 Motor::~Motor(){
 
 }
 
-Motor::int getSpeed(){
+void Motor::setup(int u1, int u2, int en){
+    _bridge.setU1Pin(u1);
+    _bridge.setU2Pin(u2);
+    _bridge.setEnPin(en);
+}
+
+int Motor::getSpeed(){
 
 }
 
-Motor::void stop(){
+void Motor::stop(){
 
 }
 
-Motor::void setSpeed(int speed){
-
+void Motor::setSpeed(int speed){
+    _bridge.setPWM(speed);
 }
 
-Motor::HBridge getBridge(){
+HBridge Motor::getBridge(){
 
 }

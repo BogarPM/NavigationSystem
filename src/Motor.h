@@ -11,8 +11,10 @@ private:
     HBridge _bridge;
     bool _attached;
 public:
-    Motor(int en, int u1, int u2);
+    Motor();
+    Motor(int u1, int u2, int en);
     ~Motor();
+    void setup(int u1,int u2,int en);
     int getSpeed();
     void stop();
     void setSpeed(int speed);
