@@ -35,3 +35,11 @@ void Navigation::setupMotor(int motor, int u1, int u2, int en){
 void Navigation::control(int angle, int speed){
     _m1.setSpeed(speed);
 }
+
+void Navigation::setDirection(bool dir){
+    _m1.setDirection(dir);
+}
+
+void Navigation::stop(){
+    _m1.stop();
+}

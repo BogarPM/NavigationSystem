@@ -1,8 +1,9 @@
 #include<Motor.h>
 #include<HBridge.h>
+#include<globals.h>
 
 Motor::Motor(){
-    
+
 }
 
 Motor::Motor(int u1, int u2, int en){
@@ -24,11 +25,18 @@ int Motor::getSpeed(){
 }
 
 void Motor::stop(){
-
+    _bridge.stop();
 }
 
 void Motor::setSpeed(int speed){
+    if(speed>0){
+
+    }
     _bridge.setPWM(speed);
+}
+
+void Motor::setDirection(bool dir){
+    _bridge.setDirection(dir);
 }
 
 HBridge Motor::getBridge(){

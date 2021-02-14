@@ -2,6 +2,7 @@
 #define Motor_h
 
 #include<HBridge.h>
+#include<globals.h>
 
 class Motor
 {
@@ -18,6 +19,7 @@ public:
     int getSpeed();
     void stop();
     void setSpeed(int speed);
+    void setDirection(bool dir);
     
     HBridge getBridge();
 };
