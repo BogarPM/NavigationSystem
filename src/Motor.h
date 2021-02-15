@@ -4,6 +4,12 @@
 #include<HBridge.h>
 #include<globals.h>
 
+//Define physical caracteristics of the motor and wheel
+#define maxSpeed 260    //RPM
+#define WheelDiameter 65    //mm
+
+
+
 class Motor
 {
 private:
@@ -15,7 +21,7 @@ public:
     Motor();
     Motor(int u1, int u2, int en);
     ~Motor();
-    void setup(int u1,int u2,int en);
+    void setup(int u,int en);
     int getSpeed();
     void stop();
     void setSpeed(int speed);

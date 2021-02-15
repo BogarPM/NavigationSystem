@@ -2,7 +2,9 @@
 #include<Arduino.h>
 
 HBridge::HBridge(){
-
+    _u1Pin = -1;
+    _u2Pin = -1;
+    _enPin = -1;
 }
 
 HBridge::HBridge(int u1, int u2, int en){  //En be a PWM Pin
@@ -56,6 +58,10 @@ void HBridge::setDirection(bool dir){
     }
 }
 
+void HBridge::setDir(bool dir){
+    _direction = dir;
+}
+
 void HBridge::setUValue(int val){
     if(_direction){
         setU2(val);
@@ -79,5 +85,5 @@ void HBridge::setPWM(int val){
 void HBridge::stop(){
     setU1(false);
     setU2(false);
-    setPWM(255);    //Enable and brack the motor
+    setPWM(0);    //Enable and brack the motor
 }
