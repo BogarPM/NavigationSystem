@@ -1,5 +1,6 @@
 #include<HBridge.h>
 #include<Arduino.h>
+#include<math.h>
 
 HBridge::HBridge(){
     _u1Pin = -1;
@@ -79,7 +80,7 @@ void HBridge::setU2(bool val){
 }
 
 void HBridge::setPWM(int val){
-    analogWrite(_enPin,val);
+    analogWrite(_enPin,abs(val));
 }
 
 void HBridge::stop(){

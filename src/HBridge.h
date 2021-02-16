@@ -2,6 +2,7 @@
 #define HBridge_h
 
 #include<Arduino.h>
+#include<math.h>
 
 class HBridge
 {

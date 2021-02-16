@@ -1,10 +1,12 @@
 #include<Navigation.h>
 #include<Motor.h>
 #include<Arduino.h>
+#include<I2C.h>
+#include<accel.h>
 
 Navigation::Navigation(){
-
-    Serial.println("Navigation init");
+    I2c.begin();
+    _accel.init(9);
 }
 
 Navigation::~Navigation(){
@@ -12,7 +14,8 @@ Navigation::~Navigation(){
 }
 
 void Navigation::onLoop(){
-    Serial.println("Navigation Loop");
+    _accel.clock();
+    //Serial.println("Navigation Loop");
 }
 
 void Navigation::setMotor(int u1, int u2, int en){

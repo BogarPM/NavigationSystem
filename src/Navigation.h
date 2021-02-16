@@ -3,18 +3,22 @@
 
 #include<Arduino.h>
 #include<Motor.h>
+#include<I2C.h>
+#include<accel.h>
 
 #define MOTORS 4
+#define COM Serial
 
 
 class Navigation
 {
 private:
-    Motor _m1;
+    /*Motor _m1;
     Motor _m2;
     Motor _m3;
-    Motor _m4;
+    Motor _m4;*/
     Motor _motors[4];
+    accel _accel;
 
 public:
     Navigation();
