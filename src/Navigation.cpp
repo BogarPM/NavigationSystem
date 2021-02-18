@@ -54,3 +54,38 @@ Motor Navigation::getMotor(int motor){
         
     }
 }
+
+void Navigation::process(char* str){        //Format:  cmd:val
+
+    int val = 0;
+    char* cmd = strtok(str,SEPARATOR);
+    val = atoi(strtok(NULL,SEPARATOR));
+    Serial.print("cmd: ");
+    Serial.println(cmd);
+    Serial.print("val: ");
+    Serial.println(val);
+    //Compare Strings
+    if(strcmp(cmd,ACCELERATE)==0){
+        _speed = val;
+        if(val > 254){
+            _speed = 254;
+        }else if(val < -254){
+            _speed = -254;
+        }
+        Serial.println("accelerate");
+        control(_angle,_speed);
+    }else if(strcmp(cmd,STOP)==0){
+        stop();
+    }else if(strcmp(cmd,ANGLE)==0){
+        if(val > MAX_ANGLE){
+            _angle = MAX_ANGLE;
+        }else if(val < -MAX_ANGLE){
+            _angle = -MAX_ANGLE;
+        }
+        control(_angle, _speed);
+    }
+    val = atoi(strtok(NULL, SEPARATOR));
+
+    
+
+}

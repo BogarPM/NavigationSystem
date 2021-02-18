@@ -7,7 +7,17 @@
 #include<accel.h>
 
 #define MOTORS 4
+#define MAX_ANGLE 45
 #define COM Serial
+
+#define SEPARATOR ":\0"
+
+
+#define ACCELERATE "a"
+#define ANGLE "an\0"
+#define STOP "s\0"
+#define CONTROL "c\0"
+
 
 
 class Navigation
@@ -20,6 +30,9 @@ private:
     Motor _motors[4];
     accel _accel;
 
+    int _angle = 0;
+    int _speed = 0;
+
 public:
     Navigation();
     ~Navigation();
@@ -30,6 +43,8 @@ public:
     void setDirection(bool dir);
     void stop();
     Motor getMotor(int motor);
+
+    void process(char* str);
 
 };
 
