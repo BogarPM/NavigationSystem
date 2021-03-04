@@ -21,11 +21,14 @@ public:
     Motor();
     Motor(int u1, int u2, int en);
     ~Motor();
-    void setup(int u,int en);
+    void setup(int u,int en);   //this function is used when pwm is input at En pin
+    void setup(int u1, int u2,int en);   //And this is used when pwm in input into the u pins
     int getSpeed();
     void stop();
     void setSpeed(int speed);
     void setDirection(bool dir);
+
+    void setMaxSpeed(int max);
     
     HBridge getBridge();
 };

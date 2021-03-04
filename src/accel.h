@@ -41,6 +41,13 @@
 #define ACCEL_8G 2
 #define ACCEL_16G 3
 
+#define G 9.8 //*m/s
+
+#define ACCEL_SCALAR_2G 16348   //*MSB/g
+#define ACCEL_SCALAR_2G 8192
+#define ACCEL_SCALAR_2G 4096
+#define ACCEL_SCALAR_2G 2048
+
 
 class accel{
 private:

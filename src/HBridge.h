@@ -7,9 +7,9 @@
 class HBridge
 {
 private:
-    int _enPin;
-    int _u1Pin;
-    int _u2Pin;
+    int _enPin = -1;
+    int _u1Pin = -1;
+    int _u2Pin = -1;
     bool _enabled;
     bool _direction;
 
@@ -22,8 +22,6 @@ public:
     void setU2Pin(int u1);
     void setEnPin(int en);
 
-    void setU1(int val);
-    void setU2(int val);
 
     void setEnabled(bool);
     void setDirection(bool dir);
@@ -32,7 +30,7 @@ public:
 
     void setU1(bool val);
     void setU2(bool val);
-    void setPWM(int val);
+    void setPWM(int val);   //Max value: 254, min: -254
     void stop();        //Or brack
     
 

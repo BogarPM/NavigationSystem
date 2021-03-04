@@ -34,31 +34,31 @@ void accel::setAccelSensitivity(int sens){
 }
 
 int accel::getAccelX(){
-
+    return _vals[0];
 }
 
 int accel::getAccelY(){
-
+    return _vals[1];
 }
 
 int accel::getAccelZ(){
-
+    return _vals[2];
 }
 
 int accel::getGyroX(){
-
+    return _vals[4];
 }
 
 int accel::getGyroY(){
-
+    return _vals[5];
 }
 
 int accel::getGyroZ(){
-
+    return _vals[6];
 }
 
 int accel::getTemp(){
-
+    return _vals[3];
 }
 
 void accel::clock(){
@@ -78,19 +78,18 @@ void accel::clock(){
         _vals[5] |= I2c.receive();
         _vals[6] = I2c.receive() << 8;
         _vals[6] |= I2c.receive();
-        _vals[0] /= 50;
+        /*_vals[0] /= 50;
         _vals[1] /= 50;
-        _vals[2] /= 50;
-        Serial.println(_vals[0]);
+        _vals[2] /= 50;*/
+        /*Serial.println(_vals[0]);
         Serial.println(_vals[1]);
         Serial.println(_vals[2]);
         Serial.println(_vals[3]);
         Serial.println(_vals[4]);
         Serial.println(_vals[5]);
         Serial.println(_vals[6]);
-        Serial.println(" ");
+        Serial.println(" ");*/
     }else{
-        Serial.println(res);
     }
     
 

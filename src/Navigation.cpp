@@ -6,7 +6,7 @@
 
 Navigation::Navigation(){
     I2c.begin();
-    _accel.init(9);
+    _accel.init(9);  
 }
 
 Navigation::~Navigation(){
@@ -15,12 +15,13 @@ Navigation::~Navigation(){
 
 void Navigation::onLoop(){
     _accel.clock();
+    updatePosition();
+    Serial.println(_accel.getAccelX());
     //Serial.println("Navigation Loop");
 }
 
-void Navigation::setMotor(int u1, int u2, int en){
+void Navigation::updatePosition(){
     
-
 }
 
 void Navigation::setupMotor(int motor, int u, int en){
@@ -28,10 +29,20 @@ void Navigation::setupMotor(int motor, int u, int en){
     _motors[motor].setup(u,en);
 }
 
+void Navigation::setupMotor(int motor, int u1, int u2, int en){
+    ////////////////////////////
+    _motors[motor].setup(u1,u2,en);
+}
+
 void Navigation::control(int angle, int speed){ 
     //Make some complex calculous for finding each motor's speed and apply it
     for(int i = 0;i<MOTORS;i++){
-        _motors[i].setSpeed(speed);
+        if(i == 0){
+            _motors[i].setSpeed(-speed);
+        }else{
+            _motors[i].setSpeed(speed);
+        }
+        
     }
 }
 
@@ -84,3 +95,8 @@ void Navigation::process(char* str){        //Format:  cmd:val
     
 
 }
+
+void Navigation::setMode(int mode){
+
+}
+
