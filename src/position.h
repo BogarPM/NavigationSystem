@@ -8,15 +8,24 @@ class position
 private:
     //Positions obtained from Accelerometer
         //Todo: Define units
-    int _xPos = 0;
-    int _yPos = 0;
-    int _zPos = 0;
+    
+
+    
+
     //Positions obtained from gyroscope and magnetometer
     int _xAngle = 0;
     int _yAngle = 0;
     int _zAngle = 0;    //Angle measured with magnetometer
 
 public:
+
+    int _xPos = 0;
+    int _yPos = 0;
+    int _zPos = 0;
+    
+    int _speed[3];
+    int _accel[3];
+
     position();
     ~position();
 

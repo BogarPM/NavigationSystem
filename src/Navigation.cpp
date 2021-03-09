@@ -16,12 +16,21 @@ Navigation::~Navigation(){
 void Navigation::onLoop(){
     _accel.clock();
     updatePosition();
-    Serial.println(_accel.getAccelX());
+    //Serial.println(_accel.getAccelX());
     //Serial.println("Navigation Loop");
 }
 
 void Navigation::updatePosition(){
-    
+    int accel = _accel.getAccelX()/ACCEL_SCALAR_2G;
+    //integrate this using last position data with x axis
+    _position._speed[0] += accel*1000/SAMPLE_PERIOD_MS;
+    _position._xPos += _position._speed[0]*1000/SAMPLE_PERIOD_MS;
+    Serial.println(accel);
+    Serial.println(_position._speed[0]);
+    Serial.println(_position._xPos);
+    Serial.println("");
+    _position._accel[0] = accel;
+
 }
 
 void Navigation::setupMotor(int motor, int u, int en){

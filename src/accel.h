@@ -3,7 +3,6 @@
 
 #include<Arduino.h>
 #include<I2C.h>
-#include<Arduino.h>
 
 #define ADDRESS 0x68
 
@@ -43,10 +42,10 @@
 
 #define G 9.8 //*m/s
 
-#define ACCEL_SCALAR_2G 16348   //*MSB/g
-#define ACCEL_SCALAR_2G 8192
-#define ACCEL_SCALAR_2G 4096
-#define ACCEL_SCALAR_2G 2048
+#define ACCEL_SCALAR_2G 1668.16   //*MSB
+#define ACCEL_SCALAR_4G 834
+#define ACCEL_SCALAR_8G 417
+#define ACCEL_SCALAR_16G 208
 
 
 class accel{
