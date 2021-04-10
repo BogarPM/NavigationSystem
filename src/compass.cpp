@@ -8,55 +8,47 @@ compass::~compass(){
 
 }
 
-compass(){
+void compass::init(){
 
 }
 
-~compass(){
+void compass::setAveragedSamplesPerMeasurement(int val){
 
 }
 
-void init(){
+void compass::setDataOutputRate(int val){
 
 }
 
-void setAveragedSamplesPerMeasurement(int val){
+void compass::setMeasurementConfiguration(int val){
 
 }
 
-void setDataOutputRate(int val){
+void compass::setGain(int val){
 
 }
 
-void setMeasurementConfiguration(int val){
+void compass::setHighSpeedI2cEnabled(bool en){
 
 }
 
-void setScale(int val){
+void compass::setOperationMode(int val){
 
 }
 
-void setHighSpeedI2cEnabled(bool en){
+int compass::getDX(){
 
 }
 
-void setOperationMode(int val){
+int compass::getDY(){
 
 }
 
-int getDX(){
+int compass::getDZ(){
 
 }
 
-int getDY(){
-
-}
-
-int getDZ(){
-
-}
-
-void clock(){
+void compass::clock(){
     
 }
 

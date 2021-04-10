@@ -15,14 +15,14 @@ Motor::Motor(int u1, int u2, int en){
 Motor::~Motor(){
 
 }
-
+//This for single direction
 void Motor::setup(int u, int en){
     _bridge.setU1Pin(u);
     //_bridge.setU2Pin(u2);
     _bridge.setEnPin(en);
     _attached = true;
 }
-
+//Setup for dual direction motor
 void Motor::setup(int u1, int u2,int en){
     _bridge.setU1Pin(u1);
     _bridge.setU2Pin(u2);
