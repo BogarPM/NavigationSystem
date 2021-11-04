@@ -8,13 +8,16 @@
 
 Navigation::Navigation(){
     I2c.begin();
-    _accel.init(2);
     pinMode(_debugPin,OUTPUT);
     digitalWrite(_debugPin,_debugPinStat);
 }
 
 Navigation::~Navigation(){
+    
+}
 
+void Navigation::initAccel(){
+    _accel.init(2);
 }
 
 void Navigation::setU1(int val){

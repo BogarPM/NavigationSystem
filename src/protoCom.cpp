@@ -1,5 +1,5 @@
 #include<Arduino.h>
-#include<protocom.h>
+#include<protoCom.h>
 
 protoCom::protoCom(){
     Serial.begin(38400);

@@ -75,6 +75,7 @@ private:
 public:
     Navigation();
     ~Navigation();
+    void initAccel();
     void onLoop();
     void updatePosition();
     void setupMotor(int motor, int u, int en);
