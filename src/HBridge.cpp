@@ -22,19 +22,19 @@ HBridge::~HBridge(){
 
 
 void HBridge::setU1Pin(int u1){
-    pinMode(_u1Pin, INPUT);
+    if(_u1Pin != -1){pinMode(_u1Pin, INPUT);}
     _u1Pin = u1;
     pinMode(_u1Pin, OUTPUT);
 }
 
 void HBridge::setU2Pin(int u2){
-    pinMode(_u2Pin, INPUT);
+    if(_u2Pin != -1){pinMode(_u2Pin, INPUT);}
     _u2Pin = u2;
     pinMode(_u2Pin, OUTPUT);
 }
 
 void HBridge::setEnPin(int en){
-    pinMode(_enPin, INPUT);
+    if(_enPin != -1){pinMode(_enPin, INPUT);}
     _enPin = en;
     pinMode(_enPin, OUTPUT);
 }
@@ -54,9 +54,11 @@ void HBridge::setDir(bool dir){
 
 void HBridge::setUValue(int val){
     if(_direction){
+        setU1(0);
         setU2(val);
     }else{
         setU1(val);
+        setU2(0);
     }
 }
 
@@ -64,12 +66,12 @@ void HBridge::setUValue(int val){
 void HBridge::setPWM(int val){
     if(val > 0){
         _direction = 1;
-        analogWrite(_u2Pin,0);
-        analogWrite(_u1Pin,abs(val));
+        if(_u1Pin != -1){analogWrite(_u1Pin,val);}
+        if(_u2Pin != -1){analogWrite(_u2Pin,0);}
     }else{
         _direction = 0;
-        analogWrite(_u1Pin,0);
-        analogWrite(_u2Pin,abs(val));
+        if(_u1Pin != -1){analogWrite(_u1Pin,0);}
+        if(_u2Pin != -1){analogWrite(_u2Pin,abs(val));}
     }
 }
 

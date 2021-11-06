@@ -97,7 +97,10 @@ void Navigation::control(int speed, int angle){
 
 void Navigation::setDirection(bool dir){
     for(int i = 0;i<MOTORS;i++){
-        _motors[i].setDirection(dir);
+        if(_motors[i].isAttached()){
+            _motors[i].setDirection(dir);
+        }
+        
     }
 }
 
